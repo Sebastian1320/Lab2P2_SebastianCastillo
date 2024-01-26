@@ -18,4 +18,13 @@ public class Usuario {
         this.contra=contra;
         this.tipo=tipo;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getContra() {
+        return contra;
+    }
+    
 }
