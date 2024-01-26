@@ -21,8 +21,8 @@ public class Lab2P2_SebastianCastillo {
         System.out.println("***** M E N U *****");
         System.out.println("1. Listar");
         System.out.println("2. Agregar");
-        System.out.println("3. Modificar");
-        System.out.println("4. Eliminar");
+        System.out.println("3. Eliminar");
+        System.out.println("4. Modificar");
         System.out.println("5. Para salir");
         int op = leer.nextInt();
         ArrayList biblioteca = new ArrayList();
@@ -49,9 +49,8 @@ public class Lab2P2_SebastianCastillo {
                     if (nivel >= 1) {
                         if (biblioteca.isEmpty()) {
                             System.out.println("No hay nada todavia");
+                            break;
                         }
-                        System.out.println("Libros");
-                        int n = 0;
                         for (Object t : biblioteca) {
                             System.out.println(biblioteca.indexOf(t) + ". " + t);
                         }
@@ -150,6 +149,7 @@ public class Lab2P2_SebastianCastillo {
                     if (nivel == 3) {
                         if (biblioteca.isEmpty()) {
                             System.out.println("No hay nada todavia");
+                            break;
                         }
                         System.out.println("Ingrese la posicion de lo que quiera eliminar");
                         int ind = leer.nextInt();
@@ -166,6 +166,7 @@ public class Lab2P2_SebastianCastillo {
                     if (nivel == 3) {
                         if (biblioteca.isEmpty()) {
                             System.out.println("No hay nada todavia");
+                            break;
                         }
                         System.out.println("Ingrese la posicion de lo que quiere modificar");
                         int ind = leer.nextInt();
@@ -253,8 +254,8 @@ public class Lab2P2_SebastianCastillo {
             System.out.println("***** M E N U *****");
             System.out.println("1. Listar");
             System.out.println("2. Agregar");
-            System.out.println("3. Modificar");
-            System.out.println("4. Eliminar");
+            System.out.println("3. Eliminar");
+            System.out.println("4. Modificar");
             System.out.println("5. Para salir");
             op = leer.nextInt();
         }
