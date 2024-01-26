@@ -147,14 +147,46 @@ public class Lab2P2_SebastianCastillo {
                     if (nivel == 3) {
                         System.out.println("Ingrese la posicion de lo que quiera eliminar");
                         int ind = leer.nextInt();
-                        biblioteca.remove(ind);
+                        if (ind <= biblioteca.size()) {
+                            biblioteca.remove(ind);
+                        } else {
+                            System.out.println("Posicion no valida");
+                        }
                     } else {
                         System.out.println("No puede ingresar a esta opcion");
                     }
                     break;
                 case 4:
                     if (nivel == 3) {
-                        System.out.println("Ingrese ");
+                        System.out.println("Ingrese la posicion de lo que quiere modificar");
+                        int ind = leer.nextInt();
+                        if (ind <= biblioteca.size()) {
+                            if(biblioteca.get(ind)instanceof Libros){
+                                  System.out.println("Ingresa el titulo");
+                            leer.nextLine();
+                            String titulo = leer.nextLine();
+                            System.out.println("Ingresa un autor");
+                            String autor = leer.nextLine();
+                            System.out.println("Ingrese un genero");
+                            String genero = leer.next();
+                            System.out.println("Ingrese el año");
+                            String ano = leer.next();
+                            System.out.println("Esta disponble [si/no]");
+                            String disp = leer.next();
+                            if (disp.equals("si") || disp.equals("Si")) {
+                                biblioteca.set(ind,new Libros(titulo, autor, genero, ano, disp));
+                            } else if (disp.equals("no") || disp.equals("No")) {
+                                biblioteca.set(ind,new Libros(titulo, autor, genero, ano, disp));
+                            } else {
+                                System.out.println("Opcion no valida");
+                                System.out.println("Expulsando del programa");
+                                break;
+                            }
+                            }
+                            
+                        } else {
+                            System.out.println("Posicion no valida");
+                        }
                     } else {
                         System.out.println("No puede ingresar");
                     }
