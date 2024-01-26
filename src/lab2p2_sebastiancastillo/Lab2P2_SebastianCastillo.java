@@ -47,6 +47,9 @@ public class Lab2P2_SebastianCastillo {
             switch (op) {
                 case 1:
                     if (nivel >= 1) {
+                        if (biblioteca.isEmpty()) {
+                            System.out.println("No hay nada todavia");
+                        }
                         System.out.println("Libros");
                         int n = 0;
                         for (Object t : biblioteca) {
@@ -83,11 +86,11 @@ public class Lab2P2_SebastianCastillo {
                                 System.out.println("Expulsando del programa");
                                 break;
                             }
-                        } else if (op == 2) {
+                        } else if (op2 == 2) {
                             System.out.println("Ingresa el titulo");
                             leer.nextLine();
                             String titulo = leer.nextLine();
-                            System.out.println("Ingresa un tema");
+                            System.out.println("Ingresa un Autor");
                             String autor = leer.nextLine();
                             System.out.println("Ingrese un tema");
                             String tema = leer.next();
@@ -104,7 +107,7 @@ public class Lab2P2_SebastianCastillo {
                                 System.out.println("Expulsando del programa");
                                 break;
                             }
-                        } else if (op == 3) {
+                        } else if (op2 == 3) {
                             System.out.println("Ingresa el titulo");
                             leer.nextLine();
                             String titulo = leer.nextLine();
@@ -115,7 +118,7 @@ public class Lab2P2_SebastianCastillo {
                             System.out.println("Ingrese plataforma de enseñanza");
                             String plat = leer.next();
                             biblioteca.add(new Cursos_en_linea(titulo, instructor, duracion, plat));
-                        } else if (op == 4) {
+                        } else if (op2 == 4) {
                             System.out.println("Ingresa el titulo");
                             leer.nextLine();
                             String titulo = leer.nextLine();
@@ -129,7 +132,7 @@ public class Lab2P2_SebastianCastillo {
                             String enlace = leer.next();
                             biblioteca.add(new Conferencias_Virtuales(titulo, conferencista, fecha, duracion, enlace));
                         } else {
-                            while (op < 1 || op > 4) {
+                            while (op2 < 1 || op2 > 4) {
                                 System.out.println("Ingrese una opcion valida");
                                 System.out.println("Cual es el tipo que usted quiere agregar");
                                 System.out.println("1. Libros");
@@ -145,6 +148,9 @@ public class Lab2P2_SebastianCastillo {
                     break;
                 case 3:
                     if (nivel == 3) {
+                        if (biblioteca.isEmpty()) {
+                            System.out.println("No hay nada todavia");
+                        }
                         System.out.println("Ingrese la posicion de lo que quiera eliminar");
                         int ind = leer.nextInt();
                         if (ind <= biblioteca.size()) {
@@ -158,39 +164,88 @@ public class Lab2P2_SebastianCastillo {
                     break;
                 case 4:
                     if (nivel == 3) {
+                        if (biblioteca.isEmpty()) {
+                            System.out.println("No hay nada todavia");
+                        }
                         System.out.println("Ingrese la posicion de lo que quiere modificar");
                         int ind = leer.nextInt();
                         if (ind <= biblioteca.size()) {
-                            if(biblioteca.get(ind)instanceof Libros){
-                                  System.out.println("Ingresa el titulo");
-                            leer.nextLine();
-                            String titulo = leer.nextLine();
-                            System.out.println("Ingresa un autor");
-                            String autor = leer.nextLine();
-                            System.out.println("Ingrese un genero");
-                            String genero = leer.next();
-                            System.out.println("Ingrese el año");
-                            String ano = leer.next();
-                            System.out.println("Esta disponble [si/no]");
-                            String disp = leer.next();
-                            if (disp.equals("si") || disp.equals("Si")) {
-                                biblioteca.set(ind,new Libros(titulo, autor, genero, ano, disp));
-                            } else if (disp.equals("no") || disp.equals("No")) {
-                                biblioteca.set(ind,new Libros(titulo, autor, genero, ano, disp));
+                            if (biblioteca.get(ind) instanceof Libros) {
+                                System.out.println("Ingresa el titulo");
+                                leer.nextLine();
+                                String titulo = leer.nextLine();
+                                System.out.println("Ingresa un autor");
+                                String autor = leer.nextLine();
+                                System.out.println("Ingrese un genero");
+                                String genero = leer.next();
+                                System.out.println("Ingrese el año");
+                                String ano = leer.next();
+                                System.out.println("Esta disponble [si/no]");
+                                String disp = leer.next();
+                                if (disp.equals("si") || disp.equals("Si")) {
+                                    biblioteca.set(ind, new Libros(titulo, autor, genero, ano, disp));
+                                } else if (disp.equals("no") || disp.equals("No")) {
+                                    biblioteca.set(ind, new Libros(titulo, autor, genero, ano, disp));
+                                } else {
+                                    System.out.println("Opcion no valida");
+                                    System.out.println("Expulsando del programa");
+                                    break;
+                                }
+                            } else if (biblioteca.get(ind) instanceof Articulos) {
+                                System.out.println("Ingresa el titulo");
+                                leer.nextLine();
+                                String titulo = leer.nextLine();
+                                System.out.println("Ingresa un tema");
+                                String autor = leer.nextLine();
+                                System.out.println("Ingrese un tema");
+                                String tema = leer.next();
+                                System.out.println("Ingrese Fecha de publicacion");
+                                String fecha = leer.next();
+                                System.out.println("Acceso en linea[si/no]");
+                                String disp = leer.next();
+                                if (disp.equals("si") || disp.equals("Si")) {
+                                    biblioteca.set(ind, new Articulos(titulo, autor, tema, fecha, disp));
+                                } else if (disp.equals("no") || disp.equals("No")) {
+                                    biblioteca.add(ind, new Articulos(titulo, autor, tema, fecha, disp));
+                                } else {
+                                    System.out.println("Opcion no valida");
+                                    System.out.println("Expulsando del programa");
+                                    break;
+                                }
+                            } else if (biblioteca.get(ind) instanceof Cursos_en_linea) {
+                                System.out.println("Ingresa el titulo");
+                                leer.nextLine();
+                                String titulo = leer.nextLine();
+                                System.out.println("Ingresa un instructor");
+                                String instructor = leer.nextLine();
+                                System.out.println("Ingrese Duracion en semanas");
+                                String duracion = leer.next();
+                                System.out.println("Ingrese plataforma de enseñanza");
+                                String plat = leer.next();
+                                biblioteca.set(ind, new Cursos_en_linea(titulo, instructor, duracion, plat));
                             } else {
-                                System.out.println("Opcion no valida");
-                                System.out.println("Expulsando del programa");
-                                break;
+                                System.out.println("Ingresa el titulo");
+                                leer.nextLine();
+                                String titulo = leer.nextLine();
+                                System.out.println("Ingresa un conferencista");
+                                String conferencista = leer.nextLine();
+                                System.out.println("Ingrese una fecha");
+                                String fecha = leer.next();
+                                System.out.println("Ingrese la duracion");
+                                String duracion = leer.next();
+                                System.out.println("Ingrese el enlace de acceso");
+                                String enlace = leer.next();
+                                biblioteca.set(ind, new Conferencias_Virtuales(titulo, conferencista, fecha, duracion, enlace));
                             }
-                            }
-                            
                         } else {
                             System.out.println("Posicion no valida");
                         }
                     } else {
                         System.out.println("No puede ingresar");
                     }
+
                     break;
+
                 default:
                     System.out.println("Eliga una opcion valida");
                     break;
