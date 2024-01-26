@@ -12,10 +12,10 @@ public class Libros {
     private String titulo;
     private String autor;
     private String genero;
-    private int ano;
+    private String ano;
     private boolean disponibilidad;
     
-    public Libros(String titulo, String autor, String genero, int a,boolean d){
+    public Libros(String titulo, String autor, String genero, String a,boolean d){
         this.titulo=titulo;
         this.autor=autor;
         this.genero=genero;
@@ -47,11 +47,11 @@ public class Libros {
         this.genero = genero;
     }
 
-    public int getAno() {
+    public String getAno() {
         return ano;
     }
 
-    public void setAno(int ano) {
+    public void setAno(String ano) {
         this.ano = ano;
     }
 

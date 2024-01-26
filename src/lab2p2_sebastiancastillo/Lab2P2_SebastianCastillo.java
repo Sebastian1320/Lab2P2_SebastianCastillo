@@ -30,40 +30,126 @@ public class Lab2P2_SebastianCastillo {
             switch (op) {
                 case 1:
                     System.out.println("Libros");
-                    int n=0;
+                    int n = 0;
                     for (Object t : biblioteca) {
                         if (biblioteca.get((int) t) instanceof Libros) {
-                            System.out.println(n+". "+((Libros)biblioteca.get((int)t)).toString());
+                            System.out.println(n + ". " + ((Libros) biblioteca.get((int) t)).toString());
                             n++;
                         }
                     }
                     System.out.println("Articulos");
-                    n=0;
+                    n = 0;
                     for (Object t : biblioteca) {
                         if (biblioteca.get((int) t) instanceof Articulos) {
-                            System.out.println(n+". "+((Articulos)biblioteca.get((int)t)).toString());
+                            System.out.println(n + ". " + ((Articulos) biblioteca.get((int) t)).toString());
                             n++;
                         }
                     }
                     System.out.println("Cursos");
-                    n=0;
+                    n = 0;
                     for (Object t : biblioteca) {
                         if (biblioteca.get((int) t) instanceof Cursos_en_linea) {
-                            System.out.println(n+". "+((Cursos_en_linea)biblioteca.get((int)t)).toString());
+                            System.out.println(n + ". " + ((Cursos_en_linea) biblioteca.get((int) t)).toString());
                             n++;
                         }
                     }
                     System.out.println("Conferencias");
-                    n=0;
+                    n = 0;
                     for (Object t : biblioteca) {
                         if (biblioteca.get((int) t) instanceof Conferencias_Virtuales) {
-                            System.out.println(n+". "+((Conferencias_Virtuales)biblioteca.get((int)t)).toString());
+                            System.out.println(n + ". " + ((Conferencias_Virtuales) biblioteca.get((int) t)).toString());
                             n++;
                         }
                     }
                     break;
                 case 2:
-                    
+                    System.out.println("Cual es el tipo que usted quiere agregar");
+                    System.out.println("1. Libros");
+                    System.out.println("2. Articulos");
+                    System.out.println("3. Cursos en línea");
+                    System.out.println("4. Conferencias Virtuales");
+                    int op2 = leer.nextInt();
+                    if (op2 == 1) {
+                        System.out.println("Ingresa el titulo");
+                        leer.nextLine();
+                        String titulo = leer.nextLine();
+                        System.out.println("Ingresa un autor");
+                        String autor = leer.nextLine();
+                        System.out.println("Ingrese un genero");
+                        String genero = leer.next();
+                        System.out.println("Ingrese el año");
+                        String ano = leer.next();
+                        System.out.println("Esta disponble [si/no]");
+                        String temp = leer.next();
+                        Boolean disp;
+                        if (temp.equals("si") || temp.equals("Si")) {
+                            disp = true;
+                        } else if (temp.equals("no") || temp.equals("No")) {
+                            disp = false;
+                        } else {
+                            System.out.println("Opcion no valida");
+                            System.out.println("Expulsando del programa");
+                            break;
+                        }
+                        biblioteca.add(new Libros(titulo, autor, genero, ano, disp));
+                    } else if (op == 2) {
+                        System.out.println("Ingresa el titulo");
+                        leer.nextLine();
+                        String titulo = leer.nextLine();
+                        System.out.println("Ingresa un tema");
+                        String autor = leer.nextLine();
+                        System.out.println("Ingrese un tema");
+                        String tema = leer.next();
+                        System.out.println("Ingrese Fecha de publicacion");
+                        String fecha = leer.next();
+                        System.out.println("Acceso en linea[si/no]");
+                        String temp = leer.next();
+                        Boolean disp;
+                        if (temp.equals("si") || temp.equals("Si")) {
+                            disp = true;
+                        } else if (temp.equals("no") || temp.equals("No")) {
+                            disp = false;
+                        } else {
+                            System.out.println("Opcion no valida");
+                            System.out.println("Expulsando del programa");
+                            break;
+                        }
+                        biblioteca.add(new Articulos(titulo, autor, tema, fecha, disp));
+                    } else if (op == 3) {
+                        System.out.println("Ingresa el titulo");
+                        leer.nextLine();
+                        String titulo = leer.nextLine();
+                        System.out.println("Ingresa un instructor");
+                        String instructor = leer.nextLine();
+                        System.out.println("Ingrese Duracion en semanas");
+                        String duracion = leer.next();
+                        System.out.println("Ingrese plataforma de enseñanza");
+                        String plat = leer.next();
+                        biblioteca.add(new Cursos_en_linea(titulo, instructor, duracion, plat));
+                    } else if (op == 4) {
+                        System.out.println("Ingresa el titulo");
+                        leer.nextLine();
+                        String titulo = leer.nextLine();
+                        System.out.println("Ingresa un conferencista");
+                        String conferencista = leer.nextLine();
+                        System.out.println("Ingrese una fecha");
+                        String fecha = leer.next();
+                        System.out.println("Ingrese la duracion");
+                        String duracion = leer.next();
+                        System.out.println("Ingrese el enlace de acceso");
+                        String enlace = leer.next();
+                        biblioteca.add(new Conferencias_Virtuales(titulo, conferencista, fecha, duracion, enlace));
+                    } else {
+                        while (op < 1 || op > 4) {
+                            System.out.println("Ingrese una opcion valida");
+                            System.out.println("Cual es el tipo que usted quiere agregar");
+                            System.out.println("1. Libros");
+                            System.out.println("2. Articulos");
+                            System.out.println("3. Cursos en línea");
+                            System.out.println("4. Conferencias Virtuales");
+                            op2 = leer.nextInt();
+                        }
+                    }
                     break;
                 case 3:
                     break;
