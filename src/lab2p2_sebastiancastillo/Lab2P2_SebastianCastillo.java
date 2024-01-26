@@ -46,36 +46,11 @@ public class Lab2P2_SebastianCastillo {
             }
             switch (op) {
                 case 1:
-                    System.out.println("Libros");
-                    int n = 0;
-                    for (Object t : biblioteca) {
-                        if (biblioteca.get((int) t) instanceof Libros) {
-                            System.out.println(n + ". " + ((Libros) biblioteca.get((int) t)).toString());
-                            n++;
-                        }
-                    }
-                    System.out.println("Articulos");
-                    n = 0;
-                    for (Object t : biblioteca) {
-                        if (biblioteca.get((int) t) instanceof Articulos) {
-                            System.out.println(n + ". " + ((Articulos) biblioteca.get((int) t)).toString());
-                            n++;
-                        }
-                    }
-                    System.out.println("Cursos");
-                    n = 0;
-                    for (Object t : biblioteca) {
-                        if (biblioteca.get((int) t) instanceof Cursos_en_linea) {
-                            System.out.println(n + ". " + ((Cursos_en_linea) biblioteca.get((int) t)).toString());
-                            n++;
-                        }
-                    }
-                    System.out.println("Conferencias");
-                    n = 0;
-                    for (Object t : biblioteca) {
-                        if (biblioteca.get((int) t) instanceof Conferencias_Virtuales) {
-                            System.out.println(n + ". " + ((Conferencias_Virtuales) biblioteca.get((int) t)).toString());
-                            n++;
+                    if (nivel >= 1) {
+                        System.out.println("Libros");
+                        int n = 0;
+                        for (Object t : biblioteca) {
+                            System.out.println(biblioteca.indexOf(t) + ". " + t);
                         }
                     }
                     break;
@@ -98,18 +73,16 @@ public class Lab2P2_SebastianCastillo {
                             System.out.println("Ingrese el año");
                             String ano = leer.next();
                             System.out.println("Esta disponble [si/no]");
-                            String temp = leer.next();
-                            Boolean disp;
-                            if (temp.equals("si") || temp.equals("Si")) {
-                                disp = true;
-                            } else if (temp.equals("no") || temp.equals("No")) {
-                                disp = false;
+                            String disp = leer.next();
+                            if (disp.equals("si") || disp.equals("Si")) {
+                                biblioteca.add(new Libros(titulo, autor, genero, ano, disp));
+                            } else if (disp.equals("no") || disp.equals("No")) {
+                                biblioteca.add(new Libros(titulo, autor, genero, ano, disp));
                             } else {
                                 System.out.println("Opcion no valida");
                                 System.out.println("Expulsando del programa");
                                 break;
                             }
-                            biblioteca.add(new Libros(titulo, autor, genero, ano, disp));
                         } else if (op == 2) {
                             System.out.println("Ingresa el titulo");
                             leer.nextLine();
@@ -121,18 +94,16 @@ public class Lab2P2_SebastianCastillo {
                             System.out.println("Ingrese Fecha de publicacion");
                             String fecha = leer.next();
                             System.out.println("Acceso en linea[si/no]");
-                            String temp = leer.next();
-                            Boolean disp;
-                            if (temp.equals("si") || temp.equals("Si")) {
-                                disp = true;
-                            } else if (temp.equals("no") || temp.equals("No")) {
-                                disp = false;
+                            String disp = leer.next();
+                            if (disp.equals("si") || disp.equals("Si")) {
+                                biblioteca.add(new Articulos(titulo, autor, tema, fecha, disp));
+                            } else if (disp.equals("no") || disp.equals("No")) {
+                                biblioteca.add(new Articulos(titulo, autor, tema, fecha, disp));
                             } else {
                                 System.out.println("Opcion no valida");
                                 System.out.println("Expulsando del programa");
                                 break;
                             }
-                            biblioteca.add(new Articulos(titulo, autor, tema, fecha, disp));
                         } else if (op == 3) {
                             System.out.println("Ingresa el titulo");
                             leer.nextLine();
@@ -168,26 +139,23 @@ public class Lab2P2_SebastianCastillo {
                                 op2 = leer.nextInt();
                             }
                         }
-                    }else{
+                    } else {
                         System.out.println("No puede ingesar a esta opcion");
                     }
                     break;
                 case 3:
-                    if(nivel==3){
-                    for (Object t : biblioteca) {
-                        System.out.println(biblioteca.indexOf(t) + ". " + t);
-                    }
-                    System.out.println("Ingrese la posicion de lo que quiera eliminar");
-                    int ind = leer.nextInt();
-                    biblioteca.remove(ind);
-                    }else{
+                    if (nivel == 3) {
+                        System.out.println("Ingrese la posicion de lo que quiera eliminar");
+                        int ind = leer.nextInt();
+                        biblioteca.remove(ind);
+                    } else {
                         System.out.println("No puede ingresar a esta opcion");
                     }
                     break;
                 case 4:
-                    if(nivel==3){
-                        
-                    }else{
+                    if (nivel == 3) {
+                        System.out.println("Ingrese ");
+                    } else {
                         System.out.println("No puede ingresar");
                     }
                     break;

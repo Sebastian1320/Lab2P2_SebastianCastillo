@@ -15,9 +15,9 @@ public class Articulos {
     private String autor;
     private String tema;
     private String fecha;
-    private boolean acceso;
+    private String acceso;
     
-    public Articulos(String titulo,String autor,String tema,String fecha,boolean a){
+    public Articulos(String titulo,String autor,String tema,String fecha,String a){
         this.titulo=titulo;
         this.autor=autor;
         this.tema=tema;
@@ -57,11 +57,11 @@ public class Articulos {
         this.fecha = fecha;
     }
 
-    public boolean isAcceso() {
+    public String isAcceso() {
         return acceso;
     }
 
-    public void setAcceso(boolean acceso) {
+    public void setAcceso(String acceso) {
         this.acceso = acceso;
     }
 

@@ -13,9 +13,9 @@ public class Libros {
     private String autor;
     private String genero;
     private String ano;
-    private boolean disponibilidad;
+    private String disponibilidad;
     
-    public Libros(String titulo, String autor, String genero, String a,boolean d){
+    public Libros(String titulo, String autor, String genero, String a,String d){
         this.titulo=titulo;
         this.autor=autor;
         this.genero=genero;
@@ -55,11 +55,11 @@ public class Libros {
         this.ano = ano;
     }
 
-    public boolean isDisponibilidad() {
+    public String isDisponibilidad() {
         return disponibilidad;
     }
 
-    public void setDisponibilidad(boolean disponibilidad) {
+    public void setDisponibilidad(String disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
 
