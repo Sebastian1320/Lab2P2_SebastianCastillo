@@ -9,5 +9,13 @@ package lab2p2_sebastiancastillo;
  * @author Asus
  */
 public class Usuario {
+    private String nombre;
+    private String contra;
+    private String tipo;
     
+    public Usuario(String nombre,String contra,String tipo){
+        this.nombre=nombre;
+        this.contra=contra;
+        this.tipo=tipo;
+    }
 }

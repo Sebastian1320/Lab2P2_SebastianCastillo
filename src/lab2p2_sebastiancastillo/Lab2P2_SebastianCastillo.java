@@ -4,6 +4,7 @@
  */
 package lab2p2_sebastiancastillo;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -24,11 +25,45 @@ public class Lab2P2_SebastianCastillo {
         System.out.println("4. Eliminar");
         System.out.println("5. Para salir");
         int op = leer.nextInt();
+        ArrayList biblioteca = new ArrayList();
         while (op != 5) {
             switch (op) {
                 case 1:
+                    System.out.println("Libros");
+                    int n=0;
+                    for (Object t : biblioteca) {
+                        if (biblioteca.get((int) t) instanceof Libros) {
+                            System.out.println(n+". "+((Libros)biblioteca.get((int)t)).toString());
+                            n++;
+                        }
+                    }
+                    System.out.println("Articulos");
+                    n=0;
+                    for (Object t : biblioteca) {
+                        if (biblioteca.get((int) t) instanceof Articulos) {
+                            System.out.println(n+". "+((Articulos)biblioteca.get((int)t)).toString());
+                            n++;
+                        }
+                    }
+                    System.out.println("Cursos");
+                    n=0;
+                    for (Object t : biblioteca) {
+                        if (biblioteca.get((int) t) instanceof Cursos_en_linea) {
+                            System.out.println(n+". "+((Cursos_en_linea)biblioteca.get((int)t)).toString());
+                            n++;
+                        }
+                    }
+                    System.out.println("Conferencias");
+                    n=0;
+                    for (Object t : biblioteca) {
+                        if (biblioteca.get((int) t) instanceof Conferencias_Virtuales) {
+                            System.out.println(n+". "+((Conferencias_Virtuales)biblioteca.get((int)t)).toString());
+                            n++;
+                        }
+                    }
                     break;
                 case 2:
+                    
                     break;
                 case 3:
                     break;

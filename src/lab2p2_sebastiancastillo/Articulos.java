@@ -14,10 +14,10 @@ public class Articulos {
     private String titulo;
     private String autor;
     private String tema;
-    private Date fecha;
+    private String fecha;
     private boolean acceso;
     
-    public Articulos(String titulo,String autor,String tema,Date fecha,boolean a){
+    public Articulos(String titulo,String autor,String tema,String fecha,boolean a){
         this.titulo=titulo;
         this.autor=autor;
         this.tema=tema;
@@ -49,11 +49,11 @@ public class Articulos {
         this.tema = tema;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
